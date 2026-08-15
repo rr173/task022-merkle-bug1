@@ -162,9 +162,6 @@ func MakeProof(blocks []string, index int) (Proof, error) {
 // 空证明 + 根等于叶子哈希时返回 true（单叶子树）。
 // 任一哈希不是合法 64 位十六进制、或方向不是 left/right 时返回错误。
 func Verify(leafHashHex string, steps []ProofStep, rootHex string) (bool, error) {
-	if steps == nil {
-		return false, nil
-	}
 	cur, err := parseHex(leafHashHex)
 	if err != nil {
 		return false, err
